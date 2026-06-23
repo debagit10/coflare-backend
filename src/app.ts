@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { Request, Response } from "express";
 import { alertRoutes } from "./alerts/alerts.route";
 import { dashboardRoutes } from "./dashboard/dashboard.route";
+import { uploadRoutes } from "./upload/upload.route";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(express.json());
 
 app.use("/api/alerts", alertRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/upload", uploadRoutes);
 
 app.get("/", (_req: Request, res: Response) => {
   res.status(200).json({ message: "Coflare backend server live" });
